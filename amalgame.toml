@@ -1,0 +1,30 @@
+# Package manifest — amalgame-compress
+#
+# zlib gzip + raw-deflate codec. Thin C wrapper over `deflate` /
+# `inflate` with the appropriate `windowBits` for gzip (31) vs
+# raw-deflate (-15). Round-trips `List<int>` byte buffers — same
+# representation the rest of amc's stdlib uses for binary data.
+#
+# Originally shipped in amc's bundled `runtime/Amalgame_Compress.h`;
+# extracted into this external package as part of the v0.7.8
+# bundled-runtime trim.
+#
+# Installation:
+#
+#   amc package add compress                  # via curated index
+#   amc package add github.com/amalgame-lang/amalgame-compress@v0.1.0
+
+[package]
+name              = "amalgame-compress"
+version           = "0.1.0"
+license           = "Apache-2.0"
+description       = "zlib gzip + raw-deflate codec: Gzip / Gunzip / Deflate / Inflate."
+authors           = ["Bastien Mouget"]
+required-amalgame = ">=0.7.7"
+schema-version    = 1
+
+[stdlib]
+class     = "Compress"
+header    = "runtime/Amalgame_Compress.h"
+namespace = "Amalgame.Compress"
+libs      = ["z"]
