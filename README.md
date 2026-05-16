@@ -8,6 +8,23 @@ Originally shipped in amc's bundled `runtime/Amalgame_Compress.h`;
 extracted into this external package as part of the v0.7.8
 bundled-runtime trim.
 
+## Prerequisites
+
+Requires `zlib` (header `zlib.h` + library `libz`) for both
+**build time** (compiling the wrapper at `amc package add` time)
+and **runtime** (linking the user binary). zlib is pre-installed
+on macOS and most Linux distros; only the `-dev` / `-devel`
+header package may need adding explicitly:
+
+| OS / distro | Command |
+|---|---|
+| Debian / Ubuntu | `sudo apt install zlib1g-dev` |
+| Fedora / RHEL | `sudo dnf install zlib-devel` |
+| Arch / Manjaro | `sudo pacman -S zlib` (usually pre-installed) |
+| Alpine | `apk add zlib-dev` |
+| macOS (Homebrew) | included with Xcode CLT — `xcode-select --install` if missing |
+| Windows (MSYS2) | `pacman -S mingw-w64-x86_64-zlib` |
+
 ## Install
 
 ```bash
@@ -15,8 +32,7 @@ amc package add compress                  # via the curated index
 amc package add github.com/amalgame-lang/amalgame-compress@v0.1.0
 ```
 
-Requires **amc 0.7.7+** and the system `zlib` (`-lz`) — installed
-out of the box on Linux, macOS, MSYS2.
+Requires **amc 0.7.7+**.
 
 ## Surface
 
